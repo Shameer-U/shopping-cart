@@ -14,11 +14,12 @@
         
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-user"></i> User Account
+                <i class="fas fa-user"></i> User Management
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#"></a>
-            <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="{{ route('user.signup')}}">Sign Up</a>
+            <a class="dropdown-item" href="{{ route('user.signin')}}">Sign In</a>
+            <a class="dropdown-item" href="{{ route('user.logout')}}">Logout</a>
           </div>
          </li>
          
