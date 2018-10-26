@@ -100,6 +100,11 @@ Route::group(['prefix' => 'user'], function(){
         'middleware' => 'auth'
     ]);
  
+    Route::get('/add-to-cart/{id}', [
+        'uses' => 'ProductController@getAddToCart',
+        'as' => 'product.addToCart'
+    ]);
+    
 
 
    

@@ -17,10 +17,15 @@
                 <i class="fas fa-user"></i> User Management
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ route('user.signup')}}">Sign Up</a>
-            <a class="dropdown-item" href="{{ route('user.signin')}}">Sign In</a>
-            <a class="dropdown-item" href="{{ route('user.logout')}}">Logout</a>
-          </div>
+          @if(Auth::check())
+               <a class="dropdown-item" href="{{ route('user.profile')}}">User Profile</a>
+               <a class="dropdown-item" href="{{ route('user.logout')}}">Logout</a>
+          @else
+              <a class="dropdown-item" href="{{ route('user.signup')}}">Sign Up</a>
+              <a class="dropdown-item" href="{{ route('user.signin')}}">Sign In</a>
+
+          @endif
+           </div>
          </li>
          
       </ul>
