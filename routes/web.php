@@ -104,6 +104,11 @@ Route::group(['prefix' => 'user'], function(){
         'uses' => 'ProductController@getAddToCart',
         'as' => 'product.addToCart'
     ]);
+
+    Route::get('/shopping-cart', [
+        'uses' => 'ProductController@getCart',
+        'as' => 'product.shoppingCart'
+    ]);
     
 
 
