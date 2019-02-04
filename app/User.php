@@ -27,8 +27,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
+     
+    /* Note the plural 'orders' in   public function orders() */ 
     public function orders(){
         return $this->hasMany('App\Order');
     }
+
+    /*
+     note "return $this->hasMany('App\Order');", here the "$this" refe to class "User".
+     so the entire sentence means class 'User' has many 'Order'. 
+      And this relationship can be used via calling 'orders()' [i.e,  public function orders()]. 
+    */ 
 }

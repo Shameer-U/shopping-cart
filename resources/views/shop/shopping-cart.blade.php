@@ -14,6 +14,12 @@
                         @foreach ($products as $product)
                           <li class="list-group-item clearfix">
                                 <span class="badge badge-circle badge-success">{{ $product['qty']}}</span>
+                                <!--
+                                    '$product' is equal to single item in  '$items', and $items is
+                                     an 'array'(not an object).So we have to use '$product['qty']' to 
+                                     access 'qty'.(if it was an object then we can use 'arrow' like
+                                     '$product->qty' )
+                                  -->
                                 <strong class="ml-4">{{ $product['item']['title']}}</strong>
                                 
                                 <span class="btn dropdown float-right mr-2">

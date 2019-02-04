@@ -20,12 +20,19 @@ class UserController extends Controller
             'email' => 'email|required|unique:users',
             'password' => 'required|min:4'
         ]);
-
+        
+        //Another way of forming an object
+         
         $user = new User([
             'email' => $request->input('email'),
             'password'  => bcrypt($request->input('password'))
         ]);
-        $user->save();
+        /* This is same as
+          $user = new User();
+          $user->email = $request->input('email');
+          $user->password = bcrypt($request->input('password'));
+        */ 
+        $user->save();/*saved to 'users' table in database */
 
         Auth::login($user);
 
@@ -66,6 +73,17 @@ class UserController extends Controller
 
     public function getProfile() {
         $orders = Auth::user()->orders;
+        /*data from  'orders' table of a particular user is taken
+        
+           The usual way of taking data from database table is
+           $orders = Order::all();
+                or
+            $orders = Order::find($id);
+
+            here the difference is becoz we are taking data
+            through a 'user' using 'one to many' relationship
+
+        */
         $orders->transform(function($order, $key){
             $order->cart = unserialize($order->cart);
             return $order;

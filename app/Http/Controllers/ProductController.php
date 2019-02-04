@@ -84,6 +84,11 @@ class ProductController extends Controller
               $order->payment_id = $charge->id;
 
               Auth::user()->orders()->save($order);
+              /*An $order 'object' is saved in 'orders' table
+              which belong to a 'user' in 'users' table ( one to many ralationship) 
+
+              I think  'Auth::user()' gives  the specific user which is logged in.
+              */
 
          } catch(\Exception $e){
              return redirect()->route('checkout')->with('error' , $e->getMessage());
